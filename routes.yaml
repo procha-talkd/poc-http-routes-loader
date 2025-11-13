@@ -1,0 +1,15 @@
+routes:
+  - id: hello-world-route
+    uri: https://httpbin.org
+    predicates:
+      - Path=/hello/**
+    filters:
+      - StripPrefix=1
+  - id: get-route
+    uri: https://httpbin.org
+    predicates:
+      - Path=/get
+  - id: example-route
+    uri: https://google.com
+    predicates:
+      - Path=/example
