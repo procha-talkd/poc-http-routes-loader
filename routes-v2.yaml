@@ -4,28 +4,34 @@ routes:
     predicates:
       - Path=/get
     filters:
-      - AddResponseHeader=X-Route-Version, v1
+      - AddResponseHeader=X-Route-Version, v2
   - id: post-route
     uri: http://httpbin
     predicates:
       - Path=/post
     filters:
-      - AddResponseHeader=X-Route-Version, v1
+      - AddResponseHeader=X-Route-Version, v2
   - id: status-route
     uri: http://httpbin
     predicates:
       - Path=/status/**
     filters:
-      - AddResponseHeader=X-Route-Version, v1
+      - AddResponseHeader=X-Route-Version, v2
   - id: delay-route
     uri: http://httpbin
     predicates:
       - Path=/delay/**
     filters:
-      - AddResponseHeader=X-Route-Version, v1
+      - AddResponseHeader=X-Route-Version, v2
   - id: headers-route
     uri: http://httpbin
     predicates:
       - Path=/headers
     filters:
-      - AddResponseHeader=X-Route-Version, v1
+      - AddResponseHeader=X-Route-Version, v2
+  - id: uuid-route
+    uri: http://httpbin
+    predicates:
+      - Path=/uuid
+    filters:
+      - AddResponseHeader=X-Route-Version, v2

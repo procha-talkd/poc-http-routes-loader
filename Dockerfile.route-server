@@ -1,0 +1,8 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copy the routes file will be mounted as volume
+EXPOSE 9090
+
+CMD ["python", "-m", "http.server", "9090"]

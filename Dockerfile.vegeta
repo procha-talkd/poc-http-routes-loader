@@ -1,0 +1,21 @@
+FROM golang:1.24-alpine AS builder
+
+RUN apk add --no-cache git
+
+RUN go install github.com/tsenart/vegeta@latest
+
+# Runtime stage
+FROM alpine:latest
+
+RUN apk add --no-cache bash jq curl
+
+COPY --from=builder /go/bin/vegeta /usr/local/bin/vegeta
+
+WORKDIR /scripts
+
+# Copy load test scripts
+COPY docker-vegeta-test.sh /scripts/
+
+RUN chmod +x /scripts/docker-vegeta-test.sh
+
+CMD ["/scripts/docker-vegeta-test.sh"]

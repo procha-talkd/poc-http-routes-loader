@@ -6,3 +6,5 @@ build/
 *.ipr
 out/
 .DS_Store
+load-test-errors.log
+.dockerignore
